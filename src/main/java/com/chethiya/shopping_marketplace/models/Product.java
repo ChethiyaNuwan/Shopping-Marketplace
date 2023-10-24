@@ -19,4 +19,5 @@ public class Product {
     private String description;
     private double price;
     private String sellerId;
+    private String category;
 }
