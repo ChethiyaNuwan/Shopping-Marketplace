@@ -7,19 +7,18 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
-@RequestMapping("users")
 public class UserController {
 
     @Autowired
     private UserService userService;
 
-    @PostMapping("")
+    @PostMapping("users")
     @ResponseBody
     public ResponseEntity<Object> createUser(@RequestBody User user){
         return userService.createUser(user);
     }
 
-    @GetMapping("")
+    @GetMapping("users")
     @ResponseBody
     public ResponseEntity<Object> getAllUsers(){
         return userService.getAllUsers();
