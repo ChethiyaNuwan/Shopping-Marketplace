@@ -13,6 +13,14 @@ public class UserService {
     private UserRepository userRepository;
 
     public ResponseEntity<Object> createUser(User user) {
-        return ResponseEntity.status(201).body(userRepository.save(user));
+        return ResponseEntity
+                .status(201)
+                .body(userRepository.save(user));
+    }
+
+    public ResponseEntity<Object> getAllUsers() {
+        return ResponseEntity
+                .status(200)
+                .body(userRepository.findAll());
     }
 }
