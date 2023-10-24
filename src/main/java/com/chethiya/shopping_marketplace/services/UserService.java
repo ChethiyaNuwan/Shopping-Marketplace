@@ -2,6 +2,7 @@ package com.chethiya.shopping_marketplace.services;
 
 import com.chethiya.shopping_marketplace.models.User;
 import com.chethiya.shopping_marketplace.repositories.UserRepository;
+import org.bson.types.ObjectId;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
@@ -18,6 +19,8 @@ public class UserService {
                     .status(409)
                     .body("User with email already exists");
         }
+
+        user.setId(new ObjectId().toString());
         return ResponseEntity
                 .status(201)
                 .body(userRepository.save(user));
