@@ -13,6 +13,11 @@ public class UserService {
     private UserRepository userRepository;
 
     public ResponseEntity<Object> createUser(User user) {
+        if (userRepository.existsUserByEmail(user.getEmail())){
+            return ResponseEntity
+                    .status(409)
+                    .body("User with email already exists");
+        }
         return ResponseEntity
                 .status(201)
                 .body(userRepository.save(user));
