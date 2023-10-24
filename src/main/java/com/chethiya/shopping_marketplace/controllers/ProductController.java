@@ -21,11 +21,11 @@ public class ProductController {
     @GetMapping("products")
     @ResponseBody
     public ResponseEntity<Object> getAllProducts(
-            @RequestParam(value = "category", required = false, defaultValue = "") String category,
-            @RequestParam(value = "minPrice", required = false, defaultValue = "") Double minPrice,
-            @RequestParam(value = "maxPrice", required = false, defaultValue = "") Double maxPrice,
-            @RequestParam(value = "sortBy", required = false, defaultValue = "") String sortBy,
-            @RequestParam(value = "order", required = false, defaultValue = "") String order
+            @RequestParam(value = "category", required = false) String category,
+            @RequestParam(value = "minPrice", required = false) Double minPrice,
+            @RequestParam(value = "maxPrice", required = false) Double maxPrice,
+            @RequestParam(value = "sortBy", required = false) String sortBy,
+            @RequestParam(value = "order", required = false) String order
     ) {
         return productService.getAllProducts(category, minPrice, maxPrice, sortBy, order);
     }
