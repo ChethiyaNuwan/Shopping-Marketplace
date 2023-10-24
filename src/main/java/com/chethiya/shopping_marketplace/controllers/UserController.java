@@ -18,4 +18,10 @@ public class UserController {
     public ResponseEntity<Object> createUser(@RequestBody User user){
         return userService.createUser(user);
     }
+
+    @GetMapping("")
+    @ResponseBody
+    public ResponseEntity<Object> getAllUsers(){
+        return userService.getAllUsers();
+    }
 }
